@@ -1,0 +1,227 @@
+{% extends 'Find_Hostel/basic.html'%}
+    {%block css%}
+     .card-deck{
+        margin-top: 20px;
+        background-image: linear-gradient(to right,#326da8,#cfe5e8);
+      
+      }
+       
+      .card-img-top{
+        height: 300px;
+      }
+      .card{
+        height: 500px;
+        border: solid black;
+        transition: transform .3s ease-out;
+      }
+
+      .card:hover{
+        transform: translate(0,-5px);
+      }
+      {% comment %} #btn{
+        position: absolute;
+        color:white;
+        background-image: linear-gradient(to right,#326da8,#cfe5e8);
+        width:150px;
+        height:40px;
+        border: 1px solid #338033
+        border-radius:4px;
+        transition: .6s;
+        overflow: hidden;
+        
+      }
+      #btn:focus{
+        outline:none;
+      }
+
+      #btn:before{
+        content:'';
+        display:block;
+        position:absolute;
+        background:rgba(50, 60, 168, .5);
+        opacity: .5s;
+        filter: blur(30px);
+        transform: translateX(-130px) skewX(-15deg);
+      }
+      #btn:after{
+        content:'';
+        display:block;
+        position:absolute;
+        background:rgba(50, 60, 168, .2);
+        opacity: 0;
+        filter: blur(30px);
+        transform: translateX(-100px) scaleX(-15deg);
+      }
+
+      #btn:hover{
+        background:#338033;
+        cursor:pointer;
+      }
+      #btn:hover:before{
+        transform:translateX(300px) skewX(-15deg)
+        opacity: .6;
+        transition: .7s;
+      }
+      #btn:hover:after{
+        transform:translateX(300px) skewX(-15deg)
+        opacity: 1;
+        transition: .7s;
+      } {% endcomment %}
+      
+      .host{
+        display: inline-block;
+      }
+
+    {%endblock%}
+    
+  {%block body%}
+  {% load static %}
+
+<div class="container">
+<!--SLIDESHOW-->
+
+<div class="card-deck">
+{% for i in Hostel|slice:"range"%}
+  <div class="card">
+    <img class="card-img-top" src='{% static "Find_Hostel/scholar.png" %}'  alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{i.hostel_name}}</h5>
+      <p class="card-text">{{i.desc}}</p>
+      <button type="button" id="hs{{i.id}}" class="btn btn-primary host ">{{i.rent}}</button>
+      <a href="/Find_Hostel/hostels{{i}}" ><button type="button" id="hv{{i}}" class="btn btn-primary host ">Explore Hostel</button></a>
+    </div>
+  </div>
+  {% if forloop.counter|divisibleby:3 and not forloop.last %}
+  </div><div class="card-deck">
+  {% endif %}
+  {% endfor %}
+  </div>
+
+  {% block js %}
+
+  <script>
+
+  console.log('working');
+if(localStorage.getItem('host') == null){
+var host = {};
+}
+else
+{
+host = JSON.parse(localStorage.getItem('host'));
+document.getElementById('host').innerHTML = Object.keys(host).length;
+}
+$('.host').click(function(){
+console.log('clicked');
+var idstr = this.id.toString();
+console.log(idstr);
+if (host[idstr] !=undefined){
+host[idstr] = host[idstr] + 1;
+}
+else
+{
+host[idstr] = 1;
+}
+console.log(host);
+localStorage.setItem('host', JSON.stringify(host));
+document.getElementById('host').innerHTML = Object.keys(host).length;
+});
+
+  </script>
+
+  {% endblock %}
+  
+  {% comment %} <div class="card">
+    <img class="card-img-top" src='{% static "Find_Hostel/scholar.png" %}'  alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src='{% static "Find_Hostel/scholar.png" %}'  alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>  {% endcomment %}
+
+  
+  
+
+
+
+{% comment %} <div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src='{% static "Find_Hostel/scholar.png" %}'  alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src='{% static "Find_Hostel/scholar.png" %}'  alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src='{% static "Find_Hostel/scholar.png" %}'  alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div> 
+
+ <div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src='{% static "Find_Hostel/scholar.png" %}'  alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src='{% static "Find_Hostel/scholar.png" %}'  alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src='{% static "Find_Hostel/scholar.png" %}'  alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div> {% endcomment %}
+
+
+ {% comment %} </div>  {% endcomment %}
+
+{% endblock %}
+</div>
+
+
+
+  
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
