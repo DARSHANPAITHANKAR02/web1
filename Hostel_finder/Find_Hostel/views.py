@@ -41,16 +41,16 @@ def search(request):
     return render(request,'Find_Hostel/about.html')
 
 
-def hostels(request,i):
+def hostels(request,myid):
     # fetch product using id
-    host=Hostels.objects.all()
+    host=Hostels.objects.filter(id=myid)
     print(host)
     
     n=len(host)
     print(n)
     
-    params={ 'range':range(0,n),'Hostel':host[i]}
+    params={'Hostel':host[0]}
    
     
-    return render(request,'Find_Hostel/hostels.html{{i}}',params)
+    return render(request,'Find_Hostel/hostels.html',params)
 
