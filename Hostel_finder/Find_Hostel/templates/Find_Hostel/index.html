@@ -97,7 +97,7 @@
   {% endfor %}
   </div>
 
-  {% block js %}
+  {% comment %} {% block js %}
 
   <script>
 
@@ -128,7 +128,7 @@ document.getElementById('host').innerHTML = Object.keys(host).length;
 
   </script>
 
-  {% endblock %}
+  {% endblock %} {% endcomment %}
   
   {% comment %} <div class="card">
     <img class="card-img-top" src='{% static "Find_Hostel/scholar.png" %}'  alt="Card image cap">
