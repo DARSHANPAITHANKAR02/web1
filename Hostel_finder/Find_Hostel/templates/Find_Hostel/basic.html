@@ -7,11 +7,23 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/media-queries.css">
     <title>{% block title %} {% endblock %}</title>
 
     <style>
-     {%block css%} {%endblock%}
+    {%block css%}  {%endblock%}
+     footer{
+       background: black;
+       color: white;
+       margin-top: 2px;
+       width: 100%;
+     }
       
       
 
@@ -38,12 +50,6 @@
        <li class="nav-item">
         <a class="nav-link" href="/Find_Hostel/about">About</a>
       </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" href="#">Favorites(<span id="host">0</span>)</a>
-      </li>
-      
-     
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -53,6 +59,56 @@
 </nav>
 
 {%block body%} {%endblock%}
+<footer>
+        	<div class="footer-top">
+		        <div class="container">
+		        	<div class="row">
+		        		<div class="col-md-4 col-lg-4 footer-about wow fadeInUp">
+		        			<img class="logo-footer" src="assets/img/logo.png" alt="logo-footer" data-at2x="assets/img/logo.png">
+		        			<p>
+		        				We are a young company always looking for new and creative ideas to help you with our products in your everyday work.
+		        			</p>
+		        			<p><a href="#">Our Team</a></p>
+	                    </div>
+		        		<div class="col-md-4 col-lg-4 offset-lg-1 footer-contact wow fadeInDown">
+		        			<h3>Contact</h3>
+		                	<p><i class="fas fa-map-marker-alt"></i> Via Rossini 10, 10136 Turin Italy</p>
+		                	<p><i class="fas fa-phone"></i> Phone: (0039) 333 12 68 347</p>
+		                	<p><i class="fas fa-envelope"></i> Email: <a href="mailto:hello@domain.com">hello@domain.com</a></p>
+		                
+	                    </div>
+	                    <div class="col-md-4 col-lg-3 footer-social wow fadeInUp">
+	                    	<h3>Follow us</h3>
+	                    	<p>
+	                    		<a href="#"><i class="fab fa-facebook"></i></a> 
+								<a href="#"><i class="fab fa-twitter"></i></a> 
+								<a href="#"><i class="fab fa-google-plus-g"></i></a> 
+								<a href="#"><i class="fab fa-instagram"></i></a> 
+								
+	                    	</p>
+	                    </div>
+		            </div>
+		        </div>
+	        </div>
+	        <div class="footer-bottom">
+	        	<div class="container">
+	        		<div class="row">
+	           			<div class="col-md-5 footer-copyright">
+	                    	<p>&copy; Website By <a href="#">Darshan Paithankar</a></p>
+	                    </div>
+	           			<div class="col-md-7 footer-menu">
+	                    	<nav class="navbar navbar-dark navbar-expand-md">
+							    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+							        <span class="navbar-toggler-icon"></span>
+							    </button>
+							    
+							
+	                    </div>
+	           		</div>
+	        	</div>
+	        </div>
+        </footer>
+
 
 
 
@@ -68,4 +124,5 @@
 
     {% block js %}  {% endblock %}
   </body>
+  
 </html>
