@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+<style>
+body{
+background-image: url('abc2.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+color:yellow;
+text-align:center;
+font-family: 'Verdana';
+}
+</style>
+<body>
+<h1 style="text-align:center;">Registration Form</h1>
+<hr>
+<form action=".php" method="POST">
+<fieldset>
+	<legend>Personal Information</legend>
+	<label for="fname">First name: </label>
+	<input type="text" id="fname" name="fname">
+	<br><br><br>
+	<label for="mname">Middle name: </label>
+	<input type="text" id="mname" name="mname">
+	<br><br><br>
+	<label for="lname">Last name: </label>
+	<input type="text" id="lname" name="lname">
+	<br><br>
+
+	<label for="gender">Gender:</label><br>
+	<input type="radio" id="male" name="gender" value="male">
+	<label for="male">Male</label><br>
+	
+	<input type="radio" id="female" name="gender" value="female">
+	<label for="female">Female</label><br>
+
+	<input type="radio" id="other" name="gender" value="other">
+	<label for="other">Other</label><br><br>
+
+	<label for="birthdate">Birthdate:</label>
+ 	 <input type="date" id="birthdate" name="birthdate"><br><br>
+
+	<label for="phone">Phone No: </label> 
+	<select id="cont" name="phone">
+		<option value="India">+91</option>
+		<option value="Indonesia">+62</option>
+		<option value="Iran">+98</option>
+		<option value="HonkKong">+852</option>
+		</select>
+	<input type="tel" id="num" name="phone" placeholder="10 digit number" maxlength="10">
+	<br><br>
+	<label for="address">Address: </label><br>
+	<textarea name="address" rows="8" cols="40"></textarea>
+	<br>
+</fieldset>
+
+<fieldset>
+	<legend>Academic Details Details</legend>
+	<label for="clg_name">Name of The College: </label>
+	<input type="text" name="clg_name"><br><br>
+	
+	<label for="course">Course: </label>
+	<select id="course" name ="course">
+		<option value="Computer Engineering">Computer Engineering</option>
+		<option value="Information Techonology">Information Techonology</option>
+		<option value="Electronics & Telecommunication">Electronics & Telecommunication</option>
+		<option value="Mechanical Engineering">Mechanical Engineering</option>
+		<option value="Instrumentation Engineering">Instrumentation Engineering</option>
+
+
+	</select><br><br>
+
+	<label for="year">Current year Of Study: </label>
+	<select id="year" name ="year">
+		<option value="FE">FE</option>
+		<option value="SE">SE</option>
+		<option value="TE">TE</option>
+ 		<option value="BE">BE</option>
+
+	</select>
+</fieldset>
+
+<fieldset>
+	<legend>Credientials</legend>
+	<label for="email">Email id: </label>
+	<input type="email" id="email" name="email"><br><br>
+	
+	<label for="pwd">Password:</label>
+  	<input type="password" id="pwd" name="pwd">
+	<br><br>
+
+	<label for="pwd">Confirm Password:</label>
+  	<input type="password" id="pwd" name="pwd">
+	
+</fieldset>	
+<input type="Submit" value="Submit">
+<h4 style="text-align:right; color:red; font-family:Stencil;">&copy; AmeyCodes</h4>
+</body>
+
